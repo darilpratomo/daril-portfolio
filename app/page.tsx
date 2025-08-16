@@ -777,66 +777,28 @@ npm i framer-motion lucide-react
             transition={{ delay: 0.1, duration: 0.6 }}
             className="relative mt-8 w-full max-w-6xl sm:mt-10"
           >
-            <GlassCard className="p-0">
-              <div className="relative grid grid-cols-1 gap-4 p-4 sm:grid-cols-1 sm:gap-6 sm:p-6">
-                {/* ID Badge */}
-                <div className="relative min-w-0 overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
-                  <div className="relative mx-auto h-16 w-16 rounded-full sm:h-20 sm:w-20">
-                    <div className="absolute inset-0 rounded-full border border-white/30 bg-white/20 backdrop-blur" />
-                    <div className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,rgba(99,102,241,0.6),rgba(236,72,153,0.6),rgba(16,185,129,0.6),rgba(99,102,241,0.6))] blur" />
-                  </div>
-                  <div className="mt-3 sm:mt-4">
-                    <p className="text-xs text-white/70 sm:text-sm">{DATA.location}</p>
-                    <p className="truncate text-base font-semibold sm:text-lg">
-                      {DATA.name}
-                    </p>
-                    <p className="text-xs text-white/80 sm:text-sm">{DATA.role}</p>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-white/70 sm:mt-4 sm:text-xs">
-                    <span>Perf</span>
-                    <Sparkline values={[2, 5, 8, 7, 9, 12, 11, 14, 16, 20]} />
-                    <span>DX</span>
-                  </div>
+            
+          <GlassCard className="p-0">
+            <div className="relative grid grid-cols-1 gap-4 p-4 sm:gap-6 sm:p-6">
+              <div className="min-w-0 rounded-2xl border border-white/20 bg-white/10 p-4 sm:p-5 
+                              relative z-10 transform-gpu will-change-transform">
+                <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-white/70 sm:text-xs">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                  <span className="ml-0 inline-flex items-center gap-1 sm:ml-2">
+                    <Terminal className="h-3.5 w-3.5" /> dev@portfolio — zsh
+                  </span>
                 </div>
-                {/* ID Badge */}
-                <div className="relative min-w-0 overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
-                  <div className="relative mx-auto h-16 w-16 rounded-full sm:h-20 sm:w-20">
-                    <div className="absolute inset-0 rounded-full border border-white/30 bg-white/20 backdrop-blur" />
-                    <div className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,rgba(99,102,241,0.6),rgba(236,72,153,0.6),rgba(16,185,129,0.6),rgba(99,102,241,0.6))] blur" />
-                  </div>
-                  <div className="mt-3 sm:mt-4">
-                    <p className="text-xs text-white/70 sm:text-sm">{DATA.location}</p>
-                    <p className="truncate text-base font-semibold sm:text-lg">
-                      {DATA.name}
-                    </p>
-                    <p className="text-xs text-white/80 sm:text-sm">{DATA.role}</p>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-white/70 sm:mt-4 sm:text-xs">
-                    <span>Perf</span>
-                    <Sparkline values={[2, 5, 8, 7, 9, 12, 11, 14, 16, 20]} />
-                    <span>DX</span>
-                  </div>
-                </div>
-
-                {/* Terminal snippet */}
-                <div className="min-w-0 rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
-                  <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-white/70 sm:text-xs">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
-                    <span className="ml-0 inline-flex items-center gap-1 sm:ml-2">
-                      <Terminal className="h-3.5 w-3.5" /> dev@portfolio — zsh
-                    </span>
-                  </div>
-                  <CodeBlock
-                    lang="bash"
-                    code={`# quick start
-${installCmd}$ echo "hello, i'm ${DATA.name}"
-$ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
-                  />
-                </div>
+                <CodeBlock
+                  lang="bash"
+                  code={`# quick start
+          ${installCmd}$ echo "hello, i'm ${DATA.name}"
+          $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
+                />
               </div>
-            </GlassCard>
+            </div>
+          </GlassCard>
 
           </motion.div>
         </div>
