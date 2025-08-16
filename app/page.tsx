@@ -908,9 +908,10 @@ $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
                       </h3>
                       <p className="mt-0.5 text-sm text-white/80">{exp.company}</p>
                     </div>
-                    <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur text-white/90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">
+                    <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur">
                       {exp.period}
                     </div>
+
 
 
 
