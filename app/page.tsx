@@ -358,13 +358,23 @@ const Pill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </span>
 );
 
-const GlassCard: React.FC<{ children: React.ReactNode; className?: string }> = ({children,className=""}) => (
-  <div className={`relative isolate min-w-0 overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_10px_40px_-10px_rgba(0,0,0,0.25)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] ${className}`}>
-    {/* toned down highlight: OFF on mobile, ON on md+ */}
-    <div className="pointer-events-none absolute inset-0 opacity-0 md:opacity-100 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_42%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_42%)]" />
-    {children}
+const GlassCard: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
+  <div
+    className={[
+      "relative overflow-hidden rounded-2xl border border-white/15",
+      "bg-white/20 dark:bg-white/[0.06]",
+      "shadow-[0_1px_0_0_rgba(255,255,255,0.25)_inset,0_10px_40px_-10px_rgba(0,0,0,0.35)]",
+      "backdrop-blur-xl backdrop-saturate-150",
+      className,
+    ].join(" ")}
+  >
+    {/* highlight halus DI BELAKANG konten */}
+    <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_40%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_40%)]" />
+    {/* konten di atas highlight supaya border & isi nggak “ketutup” */}
+    <div className="relative z-10">{children}</div>
   </div>
 );
+
 
 
 // ========= CODE BLOCK (scrollable + wrap) =========
@@ -908,9 +918,10 @@ $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
                       </h3>
                       <p className="mt-0.5 text-sm text-white/80">{exp.company}</p>
                     </div>
-                    <div className="rounded-xl border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur">
+                    <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/90 backdrop-blur drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">
                       {exp.period}
-                    </div>
+                    </span>
+
 
 
 
