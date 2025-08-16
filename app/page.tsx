@@ -358,17 +358,15 @@ const Pill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   </span>
 );
 
-const GlassCard: React.FC<{
-  children: React.ReactNode;
-  className?: string;
-}> = ({ children, className = "" }) => (
+const GlassCard: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
   <div
-    className={`relative min-w-0 overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_10px_40px_-10px_rgba(0,0,0,0.25)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] ${className}`}
+    className={`relative isolate min-w-0 overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_10px_40px_-10px_rgba(0,0,0,0.25)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] ${className}`}
   >
-    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_40%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_40%)]" />
-    {children}
+    <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.5),transparent_40%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_40%)]" />
+    <div className="relative z-10">{children}</div>
   </div>
 );
+
 
 // ========= CODE BLOCK (scrollable + wrap) =========
 const CodeBlock: React.FC<{ code: string; lang?: string }> = ({ code, lang }) => {
