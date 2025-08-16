@@ -19,9 +19,7 @@ import {
   Languages,
   Newspaper,
   Globe,
-  User,
   Briefcase,
-  FolderKanban,
   Cpu,
   Wind,
   Code2,
@@ -254,13 +252,15 @@ const Section: React.FC<{ id: string; title: React.ReactNode; subtitle?: React.R
 // ========= MAIN =========
 export default function PortfolioModernGlass() {
   const [open, setOpen] = useState(false);
-  const { dark } = useThemeToggle(); // default dark applied
+  useThemeToggle(); // default dark applied
   const [lang, setLang] = useState<"id" | "en">("id");
   const t = i18n[lang];
   const { open:cmdOpen, setOpen: setCmdOpen } = useCommandPalette();
 
   const pageRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: pageRef as any });
+  const { scrollYProgress } = useScroll({
+    container: pageRef as React.RefObject<Element>,
+  });
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.2 });
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -120]);
