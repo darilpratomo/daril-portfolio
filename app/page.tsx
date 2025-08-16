@@ -778,7 +778,7 @@ npm i framer-motion lucide-react
             className="relative mt-8 w-full max-w-6xl sm:mt-10"
           >
             
-          <GlassCard className="p-0">
+          <GlassCard className="p-0 [--no-overlay:1]">
             <div className="relative grid grid-cols-1 gap-4 p-4 sm:gap-6 sm:p-6">
               <div className="min-w-0 rounded-2xl border border-white/20 bg-white/10 p-4 sm:p-5 
                               relative z-10 transform-gpu will-change-transform">
