@@ -359,7 +359,7 @@ const Pill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 const GlassCard: React.FC<{ children: React.ReactNode; className?: string }> = ({children,className=""}) => (
-  <div className={`relative min-w-0 overflow-hidden rounded-2xl border border-white/40 bg-white/20 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_10px_40px_-10px_rgba(0,0,0,0.25)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] ${className}`}>
+  <div className={`relative isolate min-w-0 overflow-hidden rounded-2xl border border-white/40 bg-white/25 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.35)_inset,0_10px_40px_-10px_rgba(0,0,0,0.25)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] ${className}`}>
     {/* toned down highlight: OFF on mobile, ON on md+ */}
     <div className="pointer-events-none absolute inset-0 opacity-0 md:opacity-100 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_42%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_42%)]" />
     {children}
@@ -779,22 +779,12 @@ npm i framer-motion lucide-react
             <GlassCard className="p-0">
               <div className="relative grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:gap-6 sm:p-6">
                 {/* ID Badge */}
-                <div className="relative min-w-0 overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
-                  <div className="relative mx-auto h-16 w-16 rounded-full sm:h-20 sm:w-20">
-                    <div className="absolute inset-0 rounded-full border border-white/30 bg-white/20 backdrop-blur" />
-                    <div className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,rgba(99,102,241,0.6),rgba(236,72,153,0.6),rgba(16,185,129,0.6),rgba(99,102,241,0.6))] blur" />
-                  </div>
-                  <div className="mt-3 sm:mt-4">
-                    <p className="text-xs text-white/70 sm:text-sm">{DATA.location}</p>
-                    <p className="truncate text-base font-semibold sm:text-lg">
-                      {DATA.name}
-                    </p>
-                    <p className="text-xs text-white/80 sm:text-sm">{DATA.role}</p>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-white/70 sm:mt-4 sm:text-xs">
-                    <span>Perf</span>
-                    <Sparkline values={[2, 5, 8, 7, 9, 12, 11, 14, 16, 20]} />
-                    <span>DX</span>
+                <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur">
+                  <div className="pointer-events-none absolute inset-0 bg-black/5 md:bg-transparent" />
+                  <div className="mt-4 relative z-10">
+                    <p className="text-sm text-white/75 drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">{DATA.location}</p>
+                    <p className="text-lg font-semibold text-white drop-shadow-[0_1.5px_1.5px_rgba(0,0,0,0.45)]">{DATA.name}</p>
+                    <p className="text-sm text-white/85 drop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]">{DATA.role}</p>
                   </div>
                 </div>
 
@@ -918,9 +908,10 @@ $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
                       </h3>
                       <p className="mt-0.5 text-sm text-white/80">{exp.company}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur">
+                    <span className="shrink-0 rounded-full border border-white/20 bg-black/20 md:bg-white/10 px-3 py-1 text-xs text-white/90">
                       {exp.period}
                     </span>
+
                   </div>
                   <ul className="mt-3 list-inside space-y-2 text-sm text-white/85 sm:mt-4">
                     {exp.points.map((p) => (
