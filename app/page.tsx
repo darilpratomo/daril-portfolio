@@ -761,6 +761,28 @@ npm i framer-motion lucide-react
             transition={{ delay: 0.1, duration: 0.6 }}
             className="relative mt-8 w-full max-w-6xl sm:mt-10"
           >
+            <GlassCard className="p-0">
+              <div className="relative grid grid-cols-1 gap-4 p-4 sm:gap-6 sm:p-6">
+                {/* Terminal snippet */}
+                <div className="min-w-0 rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
+                  <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-white/70 sm:text-xs">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                    <span className="ml-0 inline-flex items-center gap-1 sm:ml-2">
+                      <Terminal className="h-3.5 w-3.5" /> dev@portfolio — zsh
+                    </span>
+                  </div>
+                  <CodeBlock
+                    lang="bash"
+                    code={`# quick start
+            ${installCmd}$ echo "hello, i'm ${DATA.name}"
+            $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
+                  />
+                </div>
+              </div>
+            </GlassCard>
+
           </motion.div>
         </div>
       </header>
