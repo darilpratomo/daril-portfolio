@@ -545,7 +545,7 @@ export default function PortfolioModernGlass() {
   const { open: cmdOpen, setOpen: setCmdOpen } = useCommandPalette();
 
   const pageRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: pageRef as any });
+  const { scrollYProgress } = useScroll({ container: pageRef });
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 120,
     damping: 30,
@@ -707,7 +707,7 @@ npm i framer-motion lucide-react
               <div className="flex items-center gap-2 pt-2">
                 <button
                   onClick={() => setLang((l) => (l === "id" ? "en" : "id"))}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg白/10 px-3 py-2 text-sm backdrop-blur"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm backdrop-blur"
                 >
                   <Languages className="h-4 w-4" /> {lang.toUpperCase()}
                 </button>
