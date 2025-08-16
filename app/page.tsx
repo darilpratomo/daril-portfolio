@@ -921,9 +921,10 @@ $ printf "stack: %s\n" "React/Next/TS/Tailwind/Node"`}
                       </h3>
                       <p className="mt-0.5 text-sm text-white/80">{exp.company}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs backdrop-blur">
+                    <span className="shrink-0 rounded-full border border-white/20 bg-black/20 md:bg-white/10 px-3 py-1 text-xs text-white/90">
                       {exp.period}
                     </span>
+
                   </div>
                   <ul className="mt-3 list-inside space-y-2 text-sm text-white/85 sm:mt-4">
                     {exp.points.map((p) => (
