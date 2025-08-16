@@ -258,9 +258,7 @@ export default function PortfolioModernGlass() {
   const { open:cmdOpen, setOpen: setCmdOpen } = useCommandPalette();
 
   const pageRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    container: pageRef as React.RefObject<Element>,
-  });
+  const { scrollYProgress } = useScroll({ container: pageRef });
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.2 });
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -120]);
