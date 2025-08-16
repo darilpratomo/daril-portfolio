@@ -488,8 +488,6 @@ const CmdPalette: React.FC<{
   );
 };
 
-const Sparkline: React.FC<{ values: number[] }>=({ values })=>{ const max = Math.max(...values, 1); const pts = values.map((v,i)=>${(i/(values.length-1))*100},${100-(v/max)*100}).join(" "); return ( <svg viewBox="0 0 100 100" className="h-8 w-28"> <polyline points={pts} fill="none" stroke="currentColor" strokeOpacity="0.9" strokeWidth="4"/> </svg> ); };
-
 // ========= SECTION WRAPPER =========
 const Section: React.FC<{
   id: string;
@@ -761,25 +759,6 @@ npm i framer-motion lucide-react
             className="relative mt-8 w-full max-w-6xl sm:mt-10"
           >
             <div className="relative grid grid-cols-1 gap-4 p-4 sm:gap-6 sm:p-6">
-              {/* ID Badge */}
-                <div className="relative min-w-0 overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur sm:p-5">
-                  <div className="relative mx-auto h-16 w-16 rounded-full sm:h-20 sm:w-20">
-                    <div className="absolute inset-0 rounded-full border border-white/30 bg-white/20 backdrop-blur" />
-                    <div className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,rgba(99,102,241,0.6),rgba(236,72,153,0.6),rgba(16,185,129,0.6),rgba(99,102,241,0.6))] blur" />
-                  </div>
-                  <div className="mt-3 sm:mt-4">
-                    <p className="text-xs text-white/70 sm:text-sm">{DATA.location}</p>
-                    <p className="truncate text-base font-semibold sm:text-lg">
-                      {DATA.name}
-                    </p>
-                    <p className="text-xs text-white/80 sm:text-sm">{DATA.role}</p>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-white/70 sm:mt-4 sm:text-xs">
-                    <span>Perf</span>
-                    <Sparkline values={[2, 5, 8, 7, 9, 12, 11, 14, 16, 20]} />
-                    <span>DX</span>
-                  </div>
-                </div>
               <div className="min-w-0 rounded-2xl border border-white/20 bg-white/10 p-4 sm:p-5 
                               relative z-10 transform-gpu will-change-transform">
                 <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-white/70 sm:text-xs">
