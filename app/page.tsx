@@ -488,7 +488,7 @@ const CmdPalette: React.FC<{
   );
 };
 
-
+const Sparkline: React.FC<{ values: number[] }>=({ values })=>{ const max = Math.max(...values, 1); const pts = values.map((v,i)=>${(i/(values.length-1))*100},${100-(v/max)*100}).join(" "); return ( <svg viewBox="0 0 100 100" className="h-8 w-28"> <polyline points={pts} fill="none" stroke="currentColor" strokeOpacity="0.9" strokeWidth="4"/> </svg> ); };
 
 // ========= SECTION WRAPPER =========
 const Section: React.FC<{
